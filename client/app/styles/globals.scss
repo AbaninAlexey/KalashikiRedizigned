@@ -1,0 +1,102 @@
+html {
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
+body {
+  @include fluid-text(18, 14);
+
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-primary);
+  color: var(--color-primary-default);
+  background-color: var(--color-bg);
+}
+
+main {
+  flex-grow: 1;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  color: var(--color-primary-default);
+  font-family: var(--font-family-secondary);
+  font-weight: 400;
+}
+
+h1,
+.h1 {
+  @include fluid-text(48, 24);
+  font-family: var(--font-family-secondary);
+}
+h2,
+.h2 {
+  @include fluid-text(32, 16);
+  font-family: var(--font-family-secondary);
+}
+h3,
+.h3 {
+  @include fluid-text(20, 10);
+    font-weight: 550;
+}
+h4,
+.h4 {
+  // @include fluid-text(20, 18);
+  // font-weight: 600;
+}
+h5,
+.h5 {
+  // @include fluid-text(16, 14);
+  // font-weight: 500;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  @include hover {
+    // color: var(--color-orange-primary);
+  }
+
+  &[class] {
+    text-decoration: none;
+  }
+}
+
+// :focus-visible {
+//   // @include focus-visible;
+// }
+
+// //если есть элемент с дочерним элементов свайпер
+// //то прописываем ему минимальную ширину
+// //если не сделать то у родительского элемента со свойством display
+// //будут проблемы с этображением свайпера
+// // :has(.swiper) {
+// //   min-width: 0;
+// // }
+
+// // *:focus {
+// //   outline: 3px dashed red;
+// //   outline-offset: 6px;
+// // }

@@ -1,10 +1,10 @@
-import  Navbar  from "@/widgets/Navbar/Navbar"
-import { AppRouter } from "@/app/providers/router/AppRouter";
+import { AppRouter } from "./routing/AppRouter";
+import Header from "@/widgets/Header";
 
 export const App = () => {
   return (
     <>
-      <Navbar/>
+      <Header/>
       <AppRouter/>
     </>
   );

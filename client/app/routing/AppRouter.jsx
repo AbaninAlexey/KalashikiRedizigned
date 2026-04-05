@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { Home} from "@/pages/Home/Home";
-import { Gallery } from "@/pages/Gallery/Gallery";
-import { Contacts } from "@/pages/Contacts/Contacts";
+import Home from "@/pages/Home";
+import Gallery from "@/pages/Gallery";
+import Contacts from "@/pages/Contacts";
 
 export const AppRouter = () => {
   return (

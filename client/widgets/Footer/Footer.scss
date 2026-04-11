@@ -1,0 +1,11 @@
+.footer {
+  padding-block: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__wrapper {
+    display: grid;
+    gap: 4px;
+  }
+}

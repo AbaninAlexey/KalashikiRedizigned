@@ -1,0 +1,55 @@
+.contacts {
+  display: grid;
+  align-items: center;
+
+  &__title {
+    padding-block: 80px;
+  }
+
+  &__main {
+    display: grid;
+    max-width: 468px;
+    display: grid;
+    gap: 48px;
+    align-self: start;
+  }
+
+  &__wrapper {
+    padding-block: 48px;
+    display: flex;
+    justify-content: space-between;
+    gap: 126px;
+  }
+
+  &__call {
+    display: grid;
+    gap: 12px;
+  }
+
+  &__body {
+    display: grid;
+    gap: 24px;
+  }
+
+  &__socials {
+    display: grid;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    &-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    &-button {
+      display: inline-flex;
+      color: var(--color-primary-default);
+    }
+  }
+}

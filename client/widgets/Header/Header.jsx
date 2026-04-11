@@ -1,4 +1,4 @@
-import Logo from "@/shared/Logo/Logo"
+import Logo from "@/shared/Logo"
 import Socials from "@/shared/Socials"
 import Navbar from "../Navbar"
 import "./Header.scss"

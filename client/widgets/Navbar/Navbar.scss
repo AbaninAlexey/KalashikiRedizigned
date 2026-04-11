@@ -3,4 +3,19 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  padding-block: 12px;
+
+  &__link {
+    color: var(--color-disabled-text);
+    position: relative;
+    padding-inline: 24px;
+
+    &.active {
+      color: var(--color-primary-default);
+    }
+
+    @include hover {
+      color: var(--color-focused-text);
+    }
+  }
 }

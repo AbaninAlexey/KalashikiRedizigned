@@ -1,5 +1,11 @@
+import Posts from '@/widgets/Posts'
+
 const Gallery = () => {
-  return <h1>Галлерея</h1>;
+  return (
+      <>
+        <Posts/>
+      </>
+  );
 };
 
 export default Gallery

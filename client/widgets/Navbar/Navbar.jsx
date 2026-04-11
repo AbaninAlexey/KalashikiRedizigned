@@ -1,20 +1,35 @@
-import { Link } from 'react-router-dom'
-import "./Navbar.scss"
+import { NavLink } from 'react-router-dom'
+import './Navbar.scss'
 import classNames from 'classnames'
 
 const Navbar = (props) => {
-  const {className} = props
+  const { className } = props
   return (
-    <nav className={classNames(className, "navbar")}>
-      <Link className="navbar__link" to="/">
+    <nav className={classNames(className, 'navbar')}>
+      <NavLink
+        className={({ isActive }) =>
+          classNames('navbar__link', { active: isActive })
+        }
+        to="/"
+      >
         Главная
-      </Link>
-      <Link className="navbar__link" to="/gallery">
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          classNames('navbar__link', { active: isActive })
+        }
+        to="/gallery"
+      >
         Галлерея
-      </Link>
-      <Link className="navbar__link" to="/contacts">
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          classNames('navbar__link', { active: isActive })
+        }
+        to="/contacts"
+      >
         Контакты
-      </Link>
+      </NavLink>
     </nav>
   )
 }

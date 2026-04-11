@@ -1,2 +1,2 @@
-import Post from "./Post/Post"
+import Post from "./ui/Post"
 export default Post

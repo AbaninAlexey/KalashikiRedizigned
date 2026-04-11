@@ -1,11 +1,12 @@
-import "./Home.scss"
+import './Home.scss'
 import Posts from '@/widgets/Posts'
+import Hero from '@/widgets/Hero'
 
 const Home = () => {
   return (
     <>
-      <h1>Главная</h1>
-      <Posts/>
+      <Hero />
+      <Posts isHomePage/>
     </>
   )
 }

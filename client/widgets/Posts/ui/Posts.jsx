@@ -1,6 +1,14 @@
 import Post from '@/entities/Post'
 import './Posts.scss'
 import Masonry from 'react-masonry-css'
+import img1 from '@/assets/images/01.jpg'
+import img2 from '@/assets/images/02.jpg'
+import img3 from '@/assets/images/03.jpg'
+import img4 from '@/assets/images/04.jpg'
+import img5 from '@/assets/images/05.jpg'
+import img6 from '@/assets/images/06.jpg'
+import img7 from '@/assets/images/07.jpg'
+import img8 from '@/assets/images/08.jpg'
 
 const Posts = (props) => {
   const {isHomePage} = props
@@ -13,7 +21,7 @@ const Posts = (props) => {
       date: '20.05.2026',
       category: 'digital',
       views: '100',
-      image: './client/assets/images/01.jpg',
+      image: img1,
     },
     {
       title: 'title 1',
@@ -22,7 +30,7 @@ const Posts = (props) => {
       date: '20.05.2026',
       category: 'digital',
       views: '100',
-      image: './client/assets/images/02.jpg',
+      image: img2,
     },
     {
       title: 'title 2',
@@ -31,7 +39,7 @@ const Posts = (props) => {
       date: '20.05.2026',
       category: 'digital',
       views: '100',
-      image: './client/assets/images/03.jpg',
+      image: img3,
     },
     {
       title: 'title 3',
@@ -40,7 +48,7 @@ const Posts = (props) => {
       date: '20.05.2026',
       category: 'digital',
       views: '200',
-      image: './client/assets/images/04.jpg',
+      image: img4,
     },
     {
       title: 'title 4',
@@ -49,7 +57,7 @@ const Posts = (props) => {
       date: '20.05.2026',
       category: 'digital',
       views: '200',
-      image: './client/assets/images/05.jpg',
+      image: img5,
     },
     {
       title: 'title 5',
@@ -58,7 +66,7 @@ const Posts = (props) => {
       date: '20.05.2026',
       category: 'digital',
       views: '200',
-      image: './client/assets/images/06.jpg',
+      image: img6,
     },
     {
       title: 'title 6',
@@ -67,7 +75,7 @@ const Posts = (props) => {
       date: '20.05.2026',
       category: 'digital',
       views: '200',
-      image: './client/assets/images/07.jpg',
+      image: img7,
     },
     {
       title: 'title 7',
@@ -76,7 +84,7 @@ const Posts = (props) => {
       date: '20.05.2026',
       category: 'digital',
       views: '200',
-      image: './client/assets/images/08.jpg',
+      image: img8,
     },
   ]
 

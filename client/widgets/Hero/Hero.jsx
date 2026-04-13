@@ -1,13 +1,14 @@
 import './Hero.scss'
+import cats from "@/assets/images/cats.svg"
+import author from "@/assets/images/author.svg"
 
-const Hero = (props) => {
-  const { className } = props
+const Hero = () => {
 
   return (
     <section className="hero container">
       <img
         className="hero__cats"
-        src="./client/assets/images/cats.svg"
+        src={cats}
         alt="cats"
         width="266"
         height="464"
@@ -24,7 +25,7 @@ const Hero = (props) => {
       </div>
       <img
         className="hero__cats"
-        src="./client/assets/images/author.svg"
+        src={author}
         alt="cats"
         width="266"
         height="464"

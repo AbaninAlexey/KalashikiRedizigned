@@ -1,9 +1,9 @@
 import "./Contacts.scss"
-import Max from '/client/shared/assets/icons/max.svg?react'
-import Mail from '/client/shared/assets/icons/mail.svg?react'
-import Pinterest from '/client/shared/assets/icons/pinterest.svg?react'
-import classNames from 'classnames'
+import Max from '@/shared/assets/icons/max.svg?react'
+import Mail from '@/shared/assets/icons/mail.svg?react'
+import Pinterest from '@/shared/assets/icons/pinterest.svg?react'
 import Icon from '@/shared/Icon'
+import lampCat from "@/assets/images/cat.jpg"
 
 const Contacts = () => {
 
@@ -36,7 +36,7 @@ const Contacts = () => {
       <div className="contacts__wrapper">
         <img
           className="contacts__image"
-          src="./client/assets/images/cat.jpg"
+          src={lampCat}
           alt="Ламповый кот"
           width="588"
           height="588"

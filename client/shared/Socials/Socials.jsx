@@ -21,7 +21,7 @@ const Socials = (props) => {
   return (
     <ul className={classNames(className, 'socials')}>
       {socials.map(({ id, Component, url }) => (
-        <li className="socials__item">
+        <li className="socials__item" key={id}>
           <a
             className="socials__icon"
             key={id}

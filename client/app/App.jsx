@@ -5,9 +5,7 @@ import Header from "@/widgets/Header";
 export const App = () => {
   return (
     <>
-      <Header/>
       <AppRouter/>
-      <Footer/>
     </>
   );
 };

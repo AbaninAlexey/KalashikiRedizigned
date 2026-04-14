@@ -20,7 +20,7 @@ const Navbar = (props) => {
         }
         to="/gallery"
       >
-        Галлерея
+        Галерея
       </NavLink>
       <NavLink
         className={({ isActive }) =>

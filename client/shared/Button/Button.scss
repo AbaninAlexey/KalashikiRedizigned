@@ -1,0 +1,28 @@
+.button {
+  width: 100%;
+  padding: 20px 12px;
+  background-color: var(--color-secondary-default);
+  border-radius: 100px;
+
+  &:active {
+    background-color: var(--color-secondary-pressed);
+  }
+
+  &[disabled] {
+    background-color: var(--color-secondary-default);
+    color: var(--color-disabled-text);
+  }
+
+  &--dark {
+    background-color: var(--color-primary-default);
+    color: var(--color-bg);
+
+    @include hover {
+      background-color: var(--color-primary-hovered);
+    }
+
+    &:active {
+      background-color: var(--color-primary-pressed);
+    }
+  }
+}

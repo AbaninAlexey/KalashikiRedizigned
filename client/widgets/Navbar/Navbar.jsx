@@ -30,6 +30,14 @@ const Navbar = (props) => {
       >
         Контакты
       </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          classNames('navbar__link', { active: isActive })
+        }
+        to="/login"
+      >
+        Логин
+      </NavLink>
     </nav>
   )
 }

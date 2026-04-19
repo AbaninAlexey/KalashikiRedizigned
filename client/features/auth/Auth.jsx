@@ -13,7 +13,7 @@ const Auth = (props) => {
         <Field label="Логин" type="email" id="login-feild" />
         <Field label="Пароль" type="password" id="password-feild" />
       </div>
-      <Button className="auth__button" type="submit" dark>
+      <Button className="auth__button" type="submit" mode="dark" label='Войти'>
         Войти
       </Button>
     </form>

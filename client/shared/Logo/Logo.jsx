@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import './Logo.scss'
+import { Link } from 'react-router-dom'
 
 const Logo = (props) => {
 
@@ -7,9 +8,9 @@ const Logo = (props) => {
    
   return (
     <>
-      <a className={classNames(className, "logo h3")}>
+      <Link className={classNames(className, "logo h3")} to="/">
         Kalashiki
-      </a>
+      </Link>
     </>
   )
 }

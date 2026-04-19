@@ -7,15 +7,21 @@ html {
 body {
   @include fluid-text(18, 14);
   line-height: 24px;
-  display: flex;
-  flex-direction: column;
   font-family: var(--font-family-primary);
   color: var(--color-primary-default);
   background-color: var(--color-bg);
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 main {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -63,14 +69,6 @@ textarea,
 select,
 svg * {
   transition-duration: var(--transition-duration);
-}
-
-button {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  color: var(--color-primary-default);
-  font-weight: 500;
 }
 
 a {

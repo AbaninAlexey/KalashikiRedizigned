@@ -1,4 +1,8 @@
 .header {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  background-color: var(--color-bg);
   display: grid;
   align-items: center;
   padding-block: 20px;

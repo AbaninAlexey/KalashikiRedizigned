@@ -1,11 +1,11 @@
-import Footer from "@/widgets/Footer";
-import { AppRouter } from "./routing/AppRouter";
-import Header from "@/widgets/Header";
+import Footer from '@/widgets/Footer'
+import { AppRouter } from './routing/AppRouter'
+import Header from '@/widgets/Header'
 
 export const App = () => {
   return (
     <>
-      <AppRouter/>
+      <AppRouter />
     </>
-  );
-};
+  )
+}

@@ -5,9 +5,13 @@ import { Outlet } from "react-router-dom";
 export const MainLayout = () => {
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <div className="app">
+        <Header />
+        <main className="main">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 };

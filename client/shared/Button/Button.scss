@@ -1,11 +1,22 @@
 .button {
   width: 100%;
-  padding: 20px 12px;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
   background-color: var(--color-secondary-default);
   border-radius: 100px;
+  justify-content: center;
+
+  @include hover {
+    background-color: var(--color-secondary-hovered);
+  }
 
   &:active {
     background-color: var(--color-secondary-pressed);
+  }
+
+  &__label {
+    font-weight: 500;
   }
 
   &[disabled] {

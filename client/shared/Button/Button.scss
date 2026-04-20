@@ -1,11 +1,15 @@
 .button {
-  width: 100%;
   display: flex;
   align-items: center;
   padding: 12px 20px;
   background-color: var(--color-secondary-default);
   border-radius: 100px;
   justify-content: center;
+  color: inherit;
+
+  &--circle {
+    padding: 12px;
+  }
 
   @include hover {
     background-color: var(--color-secondary-hovered);

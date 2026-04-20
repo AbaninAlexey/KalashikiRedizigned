@@ -1,0 +1,15 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-modal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

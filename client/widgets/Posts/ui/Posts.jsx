@@ -9,9 +9,12 @@ import img5 from '@/assets/images/05.jpg'
 import img6 from '@/assets/images/06.jpg'
 import img7 from '@/assets/images/07.jpg'
 import img8 from '@/assets/images/08.jpg'
+import Modal from '@/shared/Modal'
+import PostModal from '@/features/PostModal'
+import { useState } from 'react'
 
 const Posts = (props) => {
-  const {isHomePage} = props
+  const { isHomePage } = props
 
   const posts = [
     {
@@ -95,7 +98,17 @@ const Posts = (props) => {
     500: 1,
   }
 
-  const H2 = isHomePage ? "h2" : "h1"
+  const H2 = isHomePage ? 'h2' : 'h1'
+
+  const [selectedPost, setSelectedPost] = useState(null)
+
+  const handleOpenModal = (post) => {
+    setSelectedPost(post)
+  }
+
+  const handleCloseModal = () => {
+    setSelectedPost(null)
+  }
 
   return (
     <section className="container section" aria-labelledby="post-title">
@@ -109,6 +122,7 @@ const Posts = (props) => {
       >
         {posts.map((item, index) => (
           <Post
+            onClick={() => handleOpenModal(item)}
             isHomePage={isHomePage}
             key={index}
             title={item.title}
@@ -120,6 +134,19 @@ const Posts = (props) => {
           />
         ))}
       </Masonry>
+
+      <Modal isOpen={Boolean(selectedPost)} onClose={handleCloseModal}>
+        {selectedPost && (
+          <PostModal
+            category={selectedPost.category}
+            views={selectedPost.views}
+            title={selectedPost.title}
+            description={selectedPost.description}
+            imageSrc={selectedPost.image}
+            date={selectedPost.date}
+          />
+        )}
+      </Modal>
     </section>
   )
 }

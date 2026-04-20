@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import './Button.scss'
+import Icon from '@/shared/Icon'
 
 const Button = (props) => {
   const {
@@ -11,7 +12,10 @@ const Button = (props) => {
     label,
     isLabelHidden = false,
     extraAttrs,
-    mode
+    mode = "",
+    iconName,
+    // before | after
+    iconPosition = "before",
   } = props
 
   const isLink = href !== undefined
@@ -20,6 +24,10 @@ const Button = (props) => {
   const buttonProps = { type }
   const specificProps = isLink ? linkProps : buttonProps
   const title = isLabelHidden ? label : undefined
+  const iconComponent = iconName && (
+    <Icon className="button__icon" Component={iconName}/>
+  )
+
 
   return (
     <Component
@@ -31,7 +39,9 @@ const Button = (props) => {
       aria-label={title}
       title={title}
     >
+      {iconPosition === "before" && iconComponent}
       {!isLabelHidden && <span className="button__label">{label}</span>}
+      {iconPosition === "after" && iconComponent}
     </Component>
   )
 }

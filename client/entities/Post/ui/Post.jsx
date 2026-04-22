@@ -1,5 +1,4 @@
 import './Post.scss'
-import Icon from '@/shared/Icon'
 import Views from '@/shared/Views'
 
 const Post = (props) => {

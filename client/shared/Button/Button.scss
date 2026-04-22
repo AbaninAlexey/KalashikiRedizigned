@@ -11,6 +11,10 @@
     padding: 12px;
   }
 
+  &--transparent {
+    background-color: transparent;
+  }
+
   @include hover {
     background-color: var(--color-secondary-hovered);
   }

@@ -82,7 +82,7 @@ const Contacts = () => {
                   </a>
                   <div className="contacts__socials-buttons">
                     <button
-                      className="contacts__socials-button"
+                      className="contacts__socials-button button button--circle button--transparent"
                       type="button"
                     >
                       <svg width="48" height="48" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

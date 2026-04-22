@@ -18,6 +18,7 @@ const Posts = (props) => {
 
   const posts = [
     {
+      _id: 1,
       title: 'title',
       description:
         "'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.'",
@@ -27,6 +28,7 @@ const Posts = (props) => {
       image: img1,
     },
     {
+      _id: 2,
       title: 'title 1',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
@@ -36,6 +38,7 @@ const Posts = (props) => {
       image: img2,
     },
     {
+      _id: 3,
       title: 'title 2',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
@@ -45,6 +48,7 @@ const Posts = (props) => {
       image: img3,
     },
     {
+      _id: 4,
       title: 'title 3',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
@@ -54,6 +58,7 @@ const Posts = (props) => {
       image: img4,
     },
     {
+      _id: 5,
       title: 'title 4',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
@@ -63,6 +68,7 @@ const Posts = (props) => {
       image: img5,
     },
     {
+      _id: 6,
       title: 'title 5',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
@@ -72,6 +78,7 @@ const Posts = (props) => {
       image: img6,
     },
     {
+      _id: 7,
       title: 'title 6',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
@@ -81,6 +88,7 @@ const Posts = (props) => {
       image: img7,
     },
     {
+      _id: 8,
       title: 'title 7',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
@@ -91,6 +99,10 @@ const Posts = (props) => {
     },
   ]
 
+  const indexPost = Object.fromEntries(
+    posts.map(({ _id, ...rest }) => [_id, rest])
+  )
+
   const breakpointColumnsObj = {
     default: 3,
     1200: 3,
@@ -100,14 +112,33 @@ const Posts = (props) => {
 
   const H2 = isHomePage ? 'h2' : 'h1'
 
-  const [selectedPost, setSelectedPost] = useState(null)
+  const [selectedPost, setSelectedPostId] = useState(null)
 
-  const handleOpenModal = (post) => {
-    setSelectedPost(post)
+  const currentPost = posts.find(post => post._id === selectedPost)
+  const currentIndex = posts.findIndex(post => post._id === selectedPost)
+
+  const handleOpenModal = (_id) => {
+    setSelectedPostId(_id)
   }
 
   const handleCloseModal = () => {
-    setSelectedPost(null)
+    setSelectedPostId(null)
+  }
+
+  const onLeftButtonClick = () => {
+    if (currentIndex > 0) {
+      setSelectedPostId(posts[currentIndex - 1]._id)
+    } else {
+      setSelectedPostId(posts[posts.length - 1]._id)
+    }
+  }
+
+  const onRightButtonClick = () => {
+    if (currentIndex < posts.length - 1) {
+      setSelectedPostId(posts[currentIndex + 1]._id)
+    } else {
+      setSelectedPostId(posts[0]._id)
+    }
   }
 
   return (
@@ -120,11 +151,11 @@ const Posts = (props) => {
         breakpointCols={breakpointColumnsObj}
         columnClassName="posts-grid_column"
       >
-        {posts.map((item, index) => (
+        {posts.map((item) => (
           <Post
-            onClick={() => handleOpenModal(item)}
+            key={item._id}
+            onClick={() => handleOpenModal(item._id)}
             isHomePage={isHomePage}
-            key={index}
             title={item.title}
             description={item.description}
             date={item.date}
@@ -135,15 +166,17 @@ const Posts = (props) => {
         ))}
       </Masonry>
 
-      <Modal isOpen={Boolean(selectedPost)} onClose={handleCloseModal}>
-        {selectedPost && (
+      <Modal isOpen={selectedPost !== null} onClose={handleCloseModal}>
+        {selectedPost !== null && (
           <PostModal
-            category={selectedPost.category}
-            views={selectedPost.views}
-            title={selectedPost.title}
-            description={selectedPost.description}
-            imageSrc={selectedPost.image}
-            date={selectedPost.date}
+            onLeftButtonClick={onLeftButtonClick}
+            onRightButtonClick={onRightButtonClick}
+            category={currentPost.category}
+            views={currentPost.views}
+            title={currentPost.title}
+            description={currentPost.description}
+            imageSrc={currentPost.image}
+            date={currentPost.date}
           />
         )}
       </Modal>

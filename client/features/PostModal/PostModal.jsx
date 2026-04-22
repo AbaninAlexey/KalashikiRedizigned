@@ -13,17 +13,24 @@ const PostModal = (props) => {
     description,
     imageSrc,
     date,
-    views
+    views,
+    onLeftButtonClick,
+    onRightButtonClick,
   } = props
 
   return (
     <div className={classNames(className, 'post-modal')}>
-      <Button className="post-modal__button post-modal__button--left" iconName = {ArrowLeft} mode="circle"/>
+      <Button
+        onClick={onLeftButtonClick}
+        className="post-modal__button post-modal__button--left"
+        iconName={ArrowLeft}
+        mode="circle"
+      />
       <div className="post-modal__main">
         <div className="post-modal__image-wrapper">
           <img className="post-modal__image" src={imageSrc} alt="" />
         </div>
-        <div   className="post-modal__body">
+        <div className="post-modal__body">
           <div className="post-modal__info">
             <span className="post-modal__category">{category}</span>
             <h3 className="post-modal__title">{title}</h3>
@@ -36,13 +43,18 @@ const PostModal = (props) => {
             </div>
           </div>
 
-          <div className="post-modal__controls">
-            <Button label="Редактировать" mode="dark" />
-            <Button label="Удалить" />
-          </div>
+          {/*<div className="post-modal__controls">*/}
+          {/*  <Button label="Редактировать" mode="dark" />*/}
+          {/*  <Button label="Удалить" />*/}
+          {/*</div>*/}
         </div>
       </div>
-      <Button className="post-modal__button post-modal__button--right" iconName = {ArrowRight} mode="circle"/>
+      <Button
+        onClick={onRightButtonClick}
+        className="post-modal__button post-modal__button--right"
+        iconName={ArrowRight}
+        mode="circle"
+      />
     </div>
   )
 }

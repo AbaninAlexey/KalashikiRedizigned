@@ -17,5 +17,9 @@
     @include hover {
       color: var(--color-focused-text);
     }
+
+    &:focus-visible {
+      color: var(--color-focused-text);
+    }
   }
 }

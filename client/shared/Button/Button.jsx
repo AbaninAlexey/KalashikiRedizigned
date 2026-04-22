@@ -16,6 +16,7 @@ const Button = (props) => {
     iconName,
     // before | after
     iconPosition = "before",
+    onClick
   } = props
 
   const isLink = href !== undefined
@@ -31,6 +32,7 @@ const Button = (props) => {
 
   return (
     <Component
+      onClick={onClick}
       className={classNames(className, 'button', {
         [`button--${mode}`]: mode,
       })}

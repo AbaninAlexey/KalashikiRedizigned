@@ -1,0 +1,17 @@
+.controls-panel {
+  padding-block: 24px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  &__close-button {
+    padding: 0;
+    gap: 0;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

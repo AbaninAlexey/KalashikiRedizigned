@@ -5,7 +5,7 @@ import author from "@/assets/images/author.svg"
 const Hero = () => {
 
   return (
-    <section className="hero container">
+    <section className="hero container" aria-labelledby="hero-title">
       <img
         className="hero__cats"
         src={cats}
@@ -14,7 +14,7 @@ const Hero = () => {
         height="464"
       />
       <div className="hero__wrapper">
-        <h1 className="hero__title">
+        <h1 className="hero__title" id="hero-title">
           Привет! Меня зовут Аня Калашникова, <br/> я художник из России
         </h1>
         <p className="hero__description">

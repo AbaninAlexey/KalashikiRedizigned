@@ -1,7 +1,13 @@
 .posts {
-  display: flex;
-  margin-left: -24px; /* gutter offset */
-  width: auto;
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-rows: min-content auto;
+
+  &__masonry {
+    display: flex;
+    margin-left: -24px; /* gutter offset */
+    width: auto;
+  }
 }
 
 .posts-grid_column {

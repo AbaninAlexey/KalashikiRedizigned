@@ -1,0 +1,25 @@
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  justify-content: center;
+  gap: 24px;
+  margin: auto;
+  align-self: center;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  &__button {
+    max-width: 227px;
+    width: 100%;
+  }
+}

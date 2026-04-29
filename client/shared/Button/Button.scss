@@ -6,6 +6,12 @@
   border-radius: 100px;
   justify-content: center;
   color: inherit;
+  gap: 6px;
+
+  &--borderead-transparent {
+    border: var(--border);
+    background-color: transparent;
+  }
 
   &--circle {
     padding: 12px;

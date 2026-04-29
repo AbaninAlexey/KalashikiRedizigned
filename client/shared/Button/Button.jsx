@@ -1,27 +1,28 @@
 import classNames from 'classnames'
 import './Button.scss'
 import Icon from '@/shared/Icon'
+import { Link } from 'react-router-dom'
 
 const Button = (props) => {
   const {
     className,
-    href,
+    to,
     children,
     type = 'button',
     target,
     label,
     isLabelHidden = false,
     extraAttrs,
-    mode = "",
+    mode = '',
     iconName,
     // before | after
-    iconPosition = "before",
-    onClick
+    iconPosition = 'before',
+    onClick,
   } = props
 
-  const isLink = href !== undefined
-  const Component = isLink ? 'a' : 'button'
-  const linkProps = { href, target }
+  const isLink = to !== undefined
+  const Component = isLink ? Link : 'button'
+  const linkProps = { to, target }
   const buttonProps = { type }
   const specificProps = isLink ? linkProps : buttonProps
   const title = isLabelHidden ? label : undefined

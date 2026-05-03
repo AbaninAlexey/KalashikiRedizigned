@@ -1,0 +1,32 @@
+.burger-button {
+  color: var(--color-primary-default);
+  position: relative;
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__line--1,
+  &__line--2,
+  &__line--3 {
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+    transform-origin: 50% 50%;
+  }
+
+  &.is-active {
+    .burger-button__line--1 {
+      transform: translateY(3px) translateX(-3px) rotate(45deg);
+    }
+
+    .burger-button__line--2 {
+      opacity: 0;
+    }
+
+    .burger-button__line--3 {
+      transform: translateY(-6px) translateX(-3px) rotate(-45deg);
+    }
+  }
+}

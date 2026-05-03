@@ -5,12 +5,20 @@
 
   &__masonry {
     display: flex;
-    margin-left: -24px; /* gutter offset */
+    margin-left: -24px;
     width: auto;
+
+    @include tablet {
+      margin-left: -16px;
+    }
   }
 }
 
 .posts-grid_column {
-  padding-left: 24px; /* gutter */
+  padding-left: 24px;
   background-clip: padding-box;
+
+  @include tablet {
+    padding-left: 16px;
+  }
 }

@@ -5,6 +5,10 @@
   gap: 16px;
   padding-block: 12px;
 
+  @include tablet {
+    flex-direction: column;
+  }
+
   &__link {
     color: var(--color-disabled-text);
     position: relative;

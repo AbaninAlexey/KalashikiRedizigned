@@ -1,16 +1,44 @@
 .hero {
-  padding-block: 100px;
+  padding-block: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include tablet {
+    padding-block: 20px 32px;
+    gap: 48px;
+  }
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  &__image {
+    @include tablet-above {
+      display: none;
+    }
+  }
+
+  &__cats {
+    @include tablet {
+      display: none;
+    }
+  }
 
   &__title {
     line-height: 116%;
   }
 
   &__wrapper {
+  }
+
+  &__wrapper {
     display: grid;
     align-items: center;
     text-align: center;
+    
+    @include tablet {
+      gap: 16px;
+    }
   }
 }

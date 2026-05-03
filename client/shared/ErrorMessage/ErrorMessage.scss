@@ -9,6 +9,10 @@
   margin: auto;
   align-self: center;
 
+  @include mobile {
+    padding-block: 96px;
+  }
+
   &__wrapper {
     display: flex;
     flex-direction: column;

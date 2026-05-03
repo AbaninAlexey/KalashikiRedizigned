@@ -3,11 +3,14 @@
   align-items: center;
 
   &__title {
-    padding-block: 80px;
+    padding-block: fluid(80, 32);
+  }
+
+  &__image {
+    align-self: center;
   }
 
   &__main {
-    display: grid;
     max-width: 468px;
     display: grid;
     gap: 48px;
@@ -15,10 +18,14 @@
   }
 
   &__wrapper {
-    padding-block: 48px;
+    padding-block: fluid(48, 16);
     display: flex;
     justify-content: space-between;
-    gap: 126px;
+    gap: fluid(126, 48);
+
+    @include tablet {
+      flex-direction: column;
+    }
   }
 
   &__call {

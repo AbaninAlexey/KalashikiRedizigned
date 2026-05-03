@@ -3,41 +3,29 @@ import './Navbar.scss'
 import classNames from 'classnames'
 
 const Navbar = (props) => {
-  const { className } = props
+  const { className, onClick } = props
+
+  const links = [
+    { link: '/', label: 'Главная' },
+    { link: '/gallery', label: 'Галерея' },
+    { link: '/contacts', label: 'Контакты' },
+    { link: '/login', label: 'Логин' },
+  ]
+
   return (
     <nav className={classNames(className, 'navbar')}>
-      <NavLink
-        className={({ isActive }) =>
-          classNames('navbar__link', { active: isActive })
-        }
-        to="/"
-      >
-        Главная
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          classNames('navbar__link', { active: isActive })
-        }
-        to="/gallery"
-      >
-        Галерея
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          classNames('navbar__link', { active: isActive })
-        }
-        to="/contacts"
-      >
-        Контакты
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          classNames('navbar__link', { active: isActive })
-        }
-        to="/login"
-      >
-        Логин
-      </NavLink>
+      {links.map((link) => (
+        <NavLink
+          key={link.link}
+          className={({ isActive }) =>
+            classNames('navbar__link', { active: isActive })
+          }
+          to={link.link}
+          onClick={onClick}
+        >
+          {link.label}
+        </NavLink>
+      ))}
     </nav>
   )
 }

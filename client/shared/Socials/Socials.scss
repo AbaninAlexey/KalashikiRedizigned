@@ -3,11 +3,13 @@
   gap: 8px;
   align-items: center;
   justify-content: space-between;
+  color: var(--color-primary-default);
 
   &__icon {
     padding: 12px;
     border-radius: 50%;
     transition-duration: var(--transition-duration);
+    color: var(--color-primary-default);
 
     @include hover {
       background-color: var(--color-secondary-default);

@@ -1,25 +1,69 @@
 .header {
   position: sticky;
-  top: 0px;
+  top: 0;
   width: 100%;
   background-color: var(--color-bg);
-  display: grid;
   align-items: center;
-  padding-block: 20px;
-  grid-template-columns: min-content min-content auto;
+  padding-block: fluid(20, 8);
   gap: 16px;
   z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
+  justify-content: space-between;
+
+  @include tablet-above {
+    grid-template-columns: min-content min-content 1fr;
+    justify-content: start;
+  }
 
   &__logo {
-    padding: 12px 24px 12px 0;
+    padding: 12px 20px 12px 0;
+  }
+
+  &__dialog {
+    padding: 64px 16px 24px;
+    position: fixed;
+    inset: 0 auto auto 0;
+    border: none;
+    border-bottom: var(--border-disabled);
+    width: 100%;
+    margin: 0;
+    background-color: var(--color-bg);
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(-100%);
+    opacity: 0;
+
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+
+    &.is-active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @include tablet-above {
+      display: contents;
+    }
   }
 
   &__nav {
     justify-self: start;
     align-self: center;
+
+    @include tablet {
+      align-self: start;
+    }
   }
 
   &__socials {
     justify-self: end;
+
+    @include tablet {
+      align-self: start;
+    }
   }
 }

@@ -20,16 +20,13 @@ const Posts = (props) => {
 
   const breakpointColumnsObj = {
     default: 3,
-    1200: 3,
-    800: 2,
-    500: 1,
+    1024: 2,
+    768: 1,
   }
 
   const breakpointColumnsObjGallery = {
     default: 2,
-    1200: 2,
-    800: 2,
-    500: 1,
+    1024: 2,
   }
 
   const H2 = isHomePage ? 'h2' : 'h1'
@@ -38,7 +35,7 @@ const Posts = (props) => {
   const [posts, setPosts] = useState([
     {
       _id: 1,
-      title: 'title',
+      title: 'Красивый заголовок',
       description:
         "'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.'",
       date: '20.06.2023',
@@ -48,7 +45,7 @@ const Posts = (props) => {
     },
     {
       _id: 2,
-      title: 'title 1',
+      title: 'Красивый заголовок1',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
       date: '20.02.2024',
@@ -58,7 +55,7 @@ const Posts = (props) => {
     },
     {
       _id: 3,
-      title: 'title 2',
+      title: 'Красивый заголовок2',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
       date: '10.05.2023',
@@ -68,7 +65,7 @@ const Posts = (props) => {
     },
     {
       _id: 4,
-      title: 'title 3',
+      title: 'Красивый заголовок3',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
       date: '8.01.2022',
@@ -78,7 +75,7 @@ const Posts = (props) => {
     },
     {
       _id: 5,
-      title: 'title 4',
+      title: 'Красивый заголовок4',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
       date: '20.05.2026',
@@ -88,7 +85,7 @@ const Posts = (props) => {
     },
     {
       _id: 6,
-      title: 'title 5',
+      title: 'Красивый заголовок5',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
       date: '20.05.2026',
@@ -98,7 +95,7 @@ const Posts = (props) => {
     },
     {
       _id: 7,
-      title: 'title 6',
+      title: 'Красивый заголовок6',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
       date: '20.05.2026',
@@ -108,7 +105,7 @@ const Posts = (props) => {
     },
     {
       _id: 8,
-      title: 'title 7',
+      title: 'Красивый заголовок7',
       description:
         'Lorem ipsum dolor sit amet consectetur. Sed faucibus morbi viverddra tortor neque. Lorem ipsum dolor sit amet consectetur.',
       date: '20.05.2026',
@@ -259,6 +256,7 @@ const Posts = (props) => {
       <Modal isOpen={selectedPost !== null} onClose={handleCloseModal}>
         {selectedPost !== null && (
           <PostModal
+            onClick={handleCloseModal}
             onLeftButtonClick={onLeftButtonClick}
             onRightButtonClick={onRightButtonClick}
             category={currentPost.category}

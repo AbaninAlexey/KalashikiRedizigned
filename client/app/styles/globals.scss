@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  @include fluid-text(18, 14);
+  font-size: 18px;
   line-height: 24px;
   font-family: var(--font-family-primary);
   color: var(--color-primary-default);
@@ -43,20 +43,20 @@ h6,
 
 h1,
 .h1 {
-  @include fluid-text(48, 24);
+  @include fluid-text(48, 32);
   line-height: 116%;
   font-family: var(--font-family-secondary), sans-serif;
 }
 
 h2,
 .h2 {
-  @include fluid-text(32, 16);
+  @include fluid-text(32, 24);
   font-family: var(--font-family-secondary), sans-serif;
 }
 
 h3,
 .h3 {
-  @include fluid-text(20, 10);
+  font-size: 20px;
   font-weight: 550;
   font-family: var(--font-family-primary), sans-serif;
 }

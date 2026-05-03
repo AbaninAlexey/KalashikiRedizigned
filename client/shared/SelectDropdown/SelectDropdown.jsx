@@ -4,12 +4,32 @@ import classNames from 'classnames'
 import Button from '@/shared/Button'
 import Category from '/client/assets/icons/category.svg?react'
 import ArrowDown from '/client/assets/icons/arrow-down.svg?react'
+import CategoryLines from '/client/assets/icons/category-lines.svg?react'
 
 const SelectDropdown = (props) => {
   const { className, options, value, onChange, type } = props
 
   const isCheckbox = type === 'checkbox'
   const isRadio = type === 'radio'
+
+  const [isMobile375, setIsMobile1024] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 1024px)')
+
+    const handleChange = () => {
+      setIsMobile1024(media.matches)
+    }
+
+    handleChange()
+    media.addEventListener('change', handleChange)
+
+    return () => {
+      media.removeEventListener('change', handleChange)
+    }
+  }, [])
+
+  const ArrowIcon = isMobile375 ? CategoryLines : ArrowDown
 
   const selected = isRadio
     ? (options.find((option) => option.value === value) ?? options[0])
@@ -63,7 +83,7 @@ const SelectDropdown = (props) => {
   return (
     <div
       className={classNames('select-dropdown', {
-        ['select-dropdown--category']: type === 'checkbox',
+        [`select-dropdown--${type}`]: type,
       })}
       ref={dropdownRef}
     >
@@ -72,7 +92,7 @@ const SelectDropdown = (props) => {
         type="button"
         onClick={onSelectButtonClick}
         label={isRadio ? selected.label : 'Категории'}
-        iconName={isRadio ? ArrowDown : Category}
+        iconName={isRadio ? ArrowIcon : Category}
         iconPosition={isRadio ? 'after' : 'before'}
       />
       {isOpen && (

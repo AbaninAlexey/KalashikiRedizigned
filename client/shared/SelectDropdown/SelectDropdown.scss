@@ -4,11 +4,34 @@
   max-width: 260px;
   width: 100%;
 
-  &__text {
-    white-space: nowrap;
+  @include tablet {
+    max-width: none;
+    width: auto;
+    &__button {
+      padding: 12px;
+      span {
+        display: none;
+      }
+    }
   }
 
-  &--category {
+  &--radio {
+   @include tablet-above {
+     &:has(.select-dropdown__dropdown) .select-dropdown__button {
+       svg {
+         transform: rotate(-180deg);
+       }
+     }
+   }
+  }
+
+  @include mobile-above {
+    &__text {
+        white-space: nowrap;
+      }
+  }
+
+  &--checkbox {
     max-width: 170px;
 
     .select-dropdown__dropdown {
@@ -17,9 +40,32 @@
       scrollbar-color: #66380A transparent;
     }
 
-    .select-dropdown__button{
+    .select-dropdown__button {
       justify-content: center;
     }
+
+    @include mobile {
+      max-width: none;
+
+      .select-dropdown__dropdown {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        top: 170px; // подбери под высоту header/панели фильтров
+        width: auto;
+        max-width: none;
+      }
+    }
+
+    @include mobile {
+      .select-dropdown__dropdown {
+        top: 146px;
+      }
+    }
+  }
+
+  svg {
+    transition-duration: var(--transition-duration);
   }
 
   &:has(.select-dropdown__dropdown) .select-dropdown__button {

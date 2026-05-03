@@ -6,12 +6,12 @@ const Footer = () => {
   return (
     <footer className="footer container">
       <div className="footer__wrapper">
-        <Logo />
+        <Logo className="footer__logo"/>
         <p className="footer__copy">
           © Kalashiki 2026. Все права защищены.
         </p>
       </div>
-      <Socials />
+      <Socials className="footer__socials" />
     </footer>
   )
 }

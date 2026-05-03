@@ -1,5 +1,5 @@
 .controls-panel {
-  padding-block: 24px;
+  padding-block: fluid(24, 16);
   display: flex;
   gap: 8px;
   flex-wrap: wrap;

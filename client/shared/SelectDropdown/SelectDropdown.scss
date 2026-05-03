@@ -44,14 +44,14 @@
       justify-content: center;
     }
 
-    @include mobile {
+    @include mobile-l {
       max-width: none;
 
       .select-dropdown__dropdown {
         position: fixed;
         left: 16px;
         right: 16px;
-        top: 170px; // подбери под высоту header/панели фильтров
+        top: 170px;
         width: auto;
         max-width: none;
       }

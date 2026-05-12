@@ -1,5 +1,6 @@
 import Views from '@/shared/Views'
 import "./Post.scss"
+import API_URL from '@/shared/api/config'
 
 const Post = (props) => {
   const {
@@ -16,7 +17,14 @@ const Post = (props) => {
   return (
     <>
       <article className="post">
-        <img className="post__image" src={image} alt="" width="" height="" onClick={onClick}/>
+        <img
+          className="post__image"
+          src={`${API_URL}${image}`}
+          alt=""
+          width=""
+          height=""
+          onClick={onClick}
+        />
         {isHomePage && (
           <div className="post__wrapper">
             <div className="post__container">

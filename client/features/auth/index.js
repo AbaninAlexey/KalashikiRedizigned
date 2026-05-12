@@ -1,3 +1,3 @@
-import auth from './Auth'
+import auth from './ui/Auth'
 
 export default auth

@@ -31,15 +31,15 @@
     border-radius: var(--border-radius-small);
 
     &:placeholder-shown {
-      padding-right: calc(var(--fieldInputPaddingX) * 2 + var(--fieldSeachInputIconSize));
       background-position: calc(100% - var(--fieldInputPaddingX)) 50%;
       background-size: var(--fieldSeachInputIconSize);
       background-repeat: no-repeat;
     }
 
-    &_is-invalid {
-      border-color: red;
+    &-is-invalid {
+      border: 1px solid var(--color-error);
     }
+
   }
 }
 

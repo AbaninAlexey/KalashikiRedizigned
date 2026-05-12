@@ -9,7 +9,6 @@ const Navbar = (props) => {
     { link: '/', label: 'Главная' },
     { link: '/gallery', label: 'Галерея' },
     { link: '/contacts', label: 'Контакты' },
-    { link: '/login', label: 'Логин' },
   ]
 
   return (

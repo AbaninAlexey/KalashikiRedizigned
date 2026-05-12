@@ -5,6 +5,7 @@ import Views from '@/shared/Views'
 import ArrowLeft from '/client/assets/icons/arrow-left.svg?react'
 import ArrowRight from '/client/assets/icons/arrow-right.svg?react'
 import Cross from '/client/assets/icons/cross.svg?react'
+import API_URL from '@/shared/api/config'
 
 const PostModal = (props) => {
   const {
@@ -30,7 +31,11 @@ const PostModal = (props) => {
       />
       <div className="post-modal__main">
         <div className="post-modal__image-wrapper">
-          <img className="post-modal__image" src={imageSrc} alt="" />
+          <img
+            className="post-modal__image"
+            src={`${API_URL}${imageSrc}`}
+            alt=""
+          />
         </div>
         <div className="post-modal__body">
           <div className="post-modal__info">

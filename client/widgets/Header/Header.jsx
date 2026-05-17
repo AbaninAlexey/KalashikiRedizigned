@@ -9,11 +9,15 @@ import { AuthContext } from '@/app/providers/AuthProvider/AuthContext'
 import Button from '@/shared/Button'
 import Plus from '/client/assets/icons/plus.svg?react'
 import Exit from '/client/assets/icons/exit.svg?react'
+import PostModal from '@/features/PostModal'
+import Modal from '@/shared/Modal'
+import { useCategory } from '@/entities/category/model/useCategory'
 
 const Header = () => {
   const {isAdmin, logout} = useContext(AuthContext)
 
   const [isMenuOpen, setIsMenuOpen] = useState(null)
+  const [isNewPostModalOpen, setIsNewPostModalOpen] = useState(false)
 
   const onBurgerButtonClick = () => {
     setIsMenuOpen((prev) => !prev)
@@ -22,6 +26,16 @@ const Header = () => {
   const onLinkButtonClick = () => {
     setIsMenuOpen(false)
   }
+
+  const onNewPostButtonClick = () => {
+    setIsNewPostModalOpen(true)
+  }
+
+  const handleClosePostModal = () => {
+    setIsNewPostModalOpen(false)
+  }
+
+  const categories = useCategory()
 
   return (
     <header className="header container">
@@ -45,6 +59,7 @@ const Header = () => {
               label="Новая работа"
               mode="dark"
               iconName={Plus}
+              onClick={onNewPostButtonClick}
             />
             <Button
               className="header__control-button"
@@ -62,6 +77,14 @@ const Header = () => {
           ['is-active']: isMenuOpen,
         })}
       />
+      <Modal isOpen={isNewPostModalOpen} onClose={handleClosePostModal}>
+        <PostModal
+          className="header__new-post-modal"
+          isNewPostModal
+          categories={categories}
+          onCloseModal={handleClosePostModal}
+        />
+      </Modal>
     </header>
   )
 }

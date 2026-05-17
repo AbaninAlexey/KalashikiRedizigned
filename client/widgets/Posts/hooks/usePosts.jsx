@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import PostsApi from '@/widgets/Posts/api/PostsApi'
+import GetPostsApi from '@/widgets/Posts/api/getPostsApi'
 import localData from '@/widgets/Posts/constants/localData'
 
 export const usePosts = () => {
@@ -12,7 +12,7 @@ export const usePosts = () => {
       setIsLoading(true)
       setError(null)
       try {
-        const data = await PostsApi()
+        const data = await GetPostsApi()
 
         if (data) {
           setPosts(data.posts)

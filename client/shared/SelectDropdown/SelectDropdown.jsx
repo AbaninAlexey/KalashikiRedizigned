@@ -5,9 +5,22 @@ import Button from '@/shared/Button'
 import Category from '/client/assets/icons/category.svg?react'
 import ArrowDown from '/client/assets/icons/arrow-down.svg?react'
 import CategoryLines from '/client/assets/icons/category-lines.svg?react'
+import Plus from '/client/assets/icons/plus.svg?react'
+import Pencil from '/client/assets/icons/pencil.svg?react'
+import Trashbox from '/client/assets/icons/trash-box.svg?react'
+import { useCategory } from '@/entities/category/model/useCategory'
 
 const SelectDropdown = (props) => {
-  const { className, options, value, onChange, type } = props
+  const {
+    className,
+    value,
+    onChange,
+    type,
+    mode,
+    isNewPostModal,
+    dropDownPosition = 'left',
+    categories
+  } = props
 
   const isCheckbox = type === 'checkbox'
   const isRadio = type === 'radio'
@@ -29,10 +42,10 @@ const SelectDropdown = (props) => {
     }
   }, [])
 
-  const ArrowIcon = isMobile375 ? CategoryLines : ArrowDown
+  const ArrowIcon = (isMobile375 && !isNewPostModal) ? CategoryLines : ArrowDown
 
   const selected = isRadio
-    ? (options.find((option) => option.value === value) ?? options[0])
+    ? (categories.find((option) => option.value === value) ?? categories[0])
     : null
 
   const [isOpen, setIsOpen] = useState(false)
@@ -82,25 +95,38 @@ const SelectDropdown = (props) => {
 
   return (
     <div
-      className={classNames('select-dropdown', {
+      className={classNames(className, 'select-dropdown', {
         [`select-dropdown--${type}`]: type,
+        [`select-dropdown--${mode}`]: mode,
+        [`select-dropdown--${dropDownPosition}`]: dropDownPosition,
       })}
       ref={dropdownRef}
     >
       <Button
-        className="select-dropdown__button button"
+        className={classNames('select-dropdown__button', {
+          [`select-dropdown__button--${type}`]: type,
+          ['new-post-modal-border']: isNewPostModal,
+          ['select-dropdown__button-label']: isNewPostModal,
+        })}
         type="button"
         onClick={onSelectButtonClick}
-        label={isRadio ? selected.label : 'Категории'}
+        label={isRadio ? selected?.label : 'Категории'}
         iconName={isRadio ? ArrowIcon : Category}
         iconPosition={isRadio ? 'after' : 'before'}
       />
       {isOpen && (
         <div className="select-dropdown__dropdown">
-          {options.map((option, index) => (
+          {isNewPostModal && (
+            <Button
+              className="select-dropdown__new-post-modal-button-add-category"
+              mode="circle"
+              label="Добавить категорию"
+              iconName={Plus}
+            />
+          )}
+          {categories?.map((option, index) => (
             <label key={option.value} className="select-dropdown__label">
               <input
-                key={index}
                 className={classNames('select-dropdown__input', {
                   [`select-dropdown__input--${type}`]: type,
                 })}
@@ -109,7 +135,7 @@ const SelectDropdown = (props) => {
                 checked={
                   isCheckbox
                     ? value.includes(option.value)
-                    : selected.value === option.value
+                    : selected?.value === option.value
                 }
                 onChange={() => onOptionClick(option)}
                 onKeyDown={(e) => {
@@ -123,6 +149,20 @@ const SelectDropdown = (props) => {
                 <span className="select-dropdown__custom-radio" />
               )}
               <span className="select-dropdown__text">{option.label}</span>
+              {isNewPostModal && (
+                <div className="select-dropdown__change-buttons-wrapper">
+                  <Button
+                    mode="transparent"
+                    className="select-dropdown__change-button"
+                    iconName={Pencil}
+                  />
+                  <Button
+                    mode="transparent"
+                    className="select-dropdown__change-button"
+                    iconName={Trashbox}
+                  />
+                </div>
+              )}
             </label>
           ))}
         </div>

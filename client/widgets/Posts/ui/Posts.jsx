@@ -13,6 +13,7 @@ import {
 } from '@/widgets/Posts/constants/mansorySettings'
 import useSortedPosts from '@/widgets/Posts/hooks/useSortedPosts'
 import useFilteredPosts from '@/widgets/Posts/hooks/useFilteredPosts'
+import { useCategory } from '@/entities/category/model/useCategory'
 
 const Posts = (props) => {
   const { isHomePage } = props
@@ -44,6 +45,9 @@ const Posts = (props) => {
     onRightButtonClick,
   } = usePostsModal(sortedPosts, posts)
 
+  //кастомный хук для получения категорий
+  const categories = useCategory()
+
   return (
     <section className="container section posts" aria-labelledby="posts-title">
       <Title className="section__title visually-hidden" id="posts-title">
@@ -52,6 +56,7 @@ const Posts = (props) => {
 
       {!isHomePage && (
         <ControlsPanel
+          categories={categories}
           sortValue={sortValue}
           onSortChange={setSortValue}
           selectedCategories={selectedCategories}
@@ -99,11 +104,12 @@ const Posts = (props) => {
       <Modal isOpen={selectedPostId !== null} onClose={handleCloseModal}>
         {selectedPostId !== null && (
           <PostModal
-            onClick={handleCloseModal}
+            onCloseModal={handleCloseModal}
             onLeftButtonClick={onLeftButtonClick}
             onRightButtonClick={onRightButtonClick}
             category={currentPost.category_name}
             views={currentPost.views}
+            id={currentPost.id}
             title={currentPost.title}
             description={currentPost.description}
             imageSrc={currentPost.image_url}

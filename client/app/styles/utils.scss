@@ -5,6 +5,14 @@
   padding-inline: var(--container-padding-x);
 }
 
+.new-post-modal-border.new-post-modal-border {
+  border-radius: var(--border-radius-small);
+  border: var(--border-disabled);
+  background-color: var(--color-bg);
+  padding: 14px 16px;
+  width: 100%;
+}
+
 .visually-hidden {
   @include visually-hidden;
 }
@@ -14,18 +22,20 @@
     display: none !important;
   }
 }
+
 .hidden-mobile {
   @include mobile {
     display: none !important;
   }
 }
 
-.visible-tablet{
+.visible-tablet {
   @include tablet-above {
     display: none !important;
   }
 }
-.hidden-tablet{
+
+.hidden-tablet {
   @include tablet {
     display: none !important;
   }

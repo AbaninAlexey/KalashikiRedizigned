@@ -38,8 +38,8 @@
 
   &__extra {
     font-size: 16px;
-    display: grid;
-    grid-template-columns: auto min-content;
+    display: flex;
+    justify-content: space-between;
     color: var(--color-disabled-text);
   }
 

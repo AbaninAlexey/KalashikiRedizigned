@@ -18,6 +18,7 @@ const Button = (props) => {
     // before | after
     iconPosition = 'before',
     onClick,
+    onCloseModal
   } = props
 
   const isLink = to !== undefined
@@ -33,7 +34,10 @@ const Button = (props) => {
 
   return (
     <Component
-      onClick={onClick}
+      onClick={() => {
+        onClick?.()
+        onCloseModal?.()
+      }}
       className={classNames(className, 'button', {
         [`button--${mode}`]: mode,
       })}
@@ -42,9 +46,9 @@ const Button = (props) => {
       aria-label={title}
       title={title}
     >
-      {iconPosition === "before" && iconComponent}
+      {iconPosition === 'before' && iconComponent}
       {!isLabelHidden && <span className="button__label">{label}</span>}
-      {iconPosition === "after" && iconComponent}
+      {iconPosition === 'after' && iconComponent}
     </Component>
   )
 }

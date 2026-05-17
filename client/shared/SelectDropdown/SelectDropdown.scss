@@ -4,31 +4,67 @@
   max-width: 260px;
   width: 100%;
 
+  &--right {
+    .select-dropdown__dropdown {
+      right: 0;
+    }
+  }
+
   @include tablet {
     max-width: none;
     width: auto;
+
     &__button {
       padding: 12px;
+
       span {
         display: none;
+      }
+
+      &-label {
+
+        span {
+          display: inline;
+        }
+
       }
     }
   }
 
+  &__button {
+    border-radius: 100px;
+  }
+
+  &__new-post-modal-button-add-category {
+    margin-bottom: 12px;
+  }
+
+  &__change-buttons-wrapper {
+    display: flex;
+    gap: 8px;
+    padding-inline: 20px;
+    justify-content: end;
+  }
+
+  &__change-button {
+    gap: 0;
+    padding: 12px;
+  }
+
   &--radio {
-   @include tablet-above {
-     &:has(.select-dropdown__dropdown) .select-dropdown__button {
-       svg {
-         transform: rotate(-180deg);
-       }
-     }
-   }
+    @include tablet-above {
+      &:has(.select-dropdown__dropdown) .select-dropdown__button {
+        svg {
+          transform: rotate(-180deg);
+        }
+      }
+    }
   }
 
   @include mobile-above {
     &__text {
-        white-space: nowrap;
-      }
+      white-space: nowrap;
+    }
   }
 
   &--checkbox {
@@ -86,9 +122,27 @@
     display: flex;
     flex-direction: column;
     background-color: var(--color-bg);
-    padding: 16px 36px 16px 28px;
+    padding: 16px fluid(36, 28) 16px 28px;
     border-radius: var(--border-radius-large);
     border: var(--border);
+    max-height: 455px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-default) transparent;
+
+    @include tablet {
+      &:has(.select-dropdown__new-post-modal-button-add-category) {
+        margin-inline: 16px;
+      }
+    }
+  }
+
+  &__text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__arrow {
@@ -149,8 +203,18 @@
 
   &__label {
     padding: 12px 2px;
-    display: flex;
+    display: grid;
     align-items: center;
     gap: 12px;
+    grid-template-columns: min-content min-content auto;
+    font-weight: 500;
+
+    &:has(.select-dropdown__change-buttons-wrapper) {
+      padding: 0;
+    }
+
+    @include mobile-l {
+      grid-template-columns: min-content auto min-content;
+    }
   }
 }

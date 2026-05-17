@@ -15,7 +15,10 @@ const ControlsPanel = (props) => {
     onCategoryChange,
     onResetButtonClick,
     onCloseButtonClick,
+    categories,
   } = props
+
+  console.log('contr', categories)
 
   const optionsSort = [
     { value: 'new', label: 'Новые' },
@@ -24,26 +27,17 @@ const ControlsPanel = (props) => {
     { value: 'lessViews', label: 'Меньше просмотров' },
   ]
 
-  const optionsFilt = [
-    { value: 'Цифровая иллюстрация', label: 'Цифровая иллюстрация' },
-    { value: 'Карандаш', label: 'Карандаш' },
-    { value: 'Коллаж', label: 'Коллаж' },
-    { value: 'Скетчи', label: 'Скетчи' },
-    { value: 'Акварель', label: 'Акварель' },
-    { value: 'Узоры', label: 'Узоры' },
-  ]
-
   return (
     <div className={classNames(className, 'controls-panel')}>
       <SelectDropdown
         type="radio"
-        options={optionsSort}
+        categories={categories}
         value={sortValue}
         onChange={onSortChange}
       />
       <SelectDropdown
         type="checkbox"
-        options={optionsFilt}
+        categories={categories}
         value={selectedCategories}
         onChange={onCategoryChange}
       />

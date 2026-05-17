@@ -1,3 +1,3 @@
-import PostModal from './PostModal'
+import PostModal from './ui/PostModal'
 
 export default PostModal
